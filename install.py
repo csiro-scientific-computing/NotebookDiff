@@ -8,6 +8,6 @@ install_nbextension(notebookdiffdir, user=True)
 
 print("Enabling the extension ...")
 cm = ConfigManager()
-cm.update('notebook', {"load_extensions": {"notebookdiff_js/notebookdiff_ui": True}})
+cm.update('notebook', {"load_extensions": {"notebookdiff_js/notebook_ui": True}})
 
 print("Done.")

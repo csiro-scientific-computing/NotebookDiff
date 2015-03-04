@@ -7,7 +7,10 @@ Requirements:
 
 Installation (from repository):
 ------------------------------
+    git clone https://github.com/csiro-scientific-computing/NotebookDiff.git notebookdiff
+    cd notebookdiff
     python setup.py install
     python install.py
-    c.NotebookApp.server_extensions = [ 'notebookdiff' ]
-    c.NotebookApp.contents_manager_class = 'notebookdiff.filemanager.NotebookDiffContentsManager'
+    
+    Config Settings:
+    Modify IPython notebook config and custom.js files according to the files in /examples

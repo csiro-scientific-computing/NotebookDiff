@@ -9,6 +9,24 @@ import subprocess
 from . import notebook_diff
 
 class NotebookDiffContentsManager(FileContentsManager):        
+    def __init__(self, *args, **kwargs):
+        # Install the nbextension when instantiated
+        from os.path import dirname, abspath, join as pjoin
+        from IPython.html.nbextensions import install_nbextension
+        from IPython.html.services.config import ConfigManager
+
+        # Install the extension
+        notebookdiffdir = pjoin(dirname(abspath(__file__)), 'notebookdiff_js')
+        install_nbextension(notebookdiffdir, user=True)
+
+        # Enable the extension
+        cm = ConfigManager()
+        cm.update('notebook', {"load_extensions": {"notebookdiff_js/notebook_ui": True}})
+
+        # call the parent constructor
+        super(NotebookDiffContentsManager, self).__init__(*args, **kwargs)
+
+
     def git_log(self, path):
         path = path.strip(os.sep)
         path = self._get_os_path(path)

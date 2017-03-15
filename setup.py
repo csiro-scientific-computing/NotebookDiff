@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(name='notebookdiff',
     version='0.1',
-    description='Visual diff tool for IPython notebooks',
+    description='Visual diff tool for Jupyter notebooks',
     url='https://github.com/csiro-scientific-computing/notebookdiff',
     author='Alex Kruger',
     author_email='Alex.Kruger@csiro.au',

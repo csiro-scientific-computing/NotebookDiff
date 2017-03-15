@@ -2,10 +2,10 @@ import json
 
 from tornado import gen, web
 
-from IPython.html.utils import url_path_join
-from IPython.utils.jsonutil import date_default
+from notebook.utils import url_path_join
+from jupyter_client.jsonutil import date_default
 
-from IPython.html.base.handlers import (
+from notebook.base.handlers import (
     IPythonHandler, json_errors, path_regex,
 )
 

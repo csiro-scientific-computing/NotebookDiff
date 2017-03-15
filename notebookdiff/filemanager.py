@@ -1,7 +1,7 @@
 import io
 import os
 
-from IPython.html.services.contents.filemanager import FileContentsManager
+from notebook.services.contents.filemanager import FileContentsManager
 
 from IPython.utils.encoding import DEFAULT_ENCODING
 import subprocess
@@ -12,8 +12,8 @@ class NotebookDiffContentsManager(FileContentsManager):
     def __init__(self, *args, **kwargs):
         # Install the nbextension when instantiated
         from os.path import dirname, abspath, join as pjoin
-        from IPython.html.nbextensions import install_nbextension
-        from IPython.html.services.config import ConfigManager
+        from notebook.nbextensions import install_nbextension
+        from notebook.services.config import ConfigManager
 
         # Install the extension
         notebookdiffdir = pjoin(dirname(abspath(__file__)), 'notebookdiff_js')
@@ -21,7 +21,9 @@ class NotebookDiffContentsManager(FileContentsManager):
 
         # Enable the extension
         cm = ConfigManager()
-        cm.update('notebook', {"load_extensions": {"notebookdiff_js/notebook_ui": True}})
+        cm.update('notebook', {"load_extensions": {
+            "notebookdiff_js/notebook_ui": True
+        }})
 
         # call the parent constructor
         super(NotebookDiffContentsManager, self).__init__(*args, **kwargs)

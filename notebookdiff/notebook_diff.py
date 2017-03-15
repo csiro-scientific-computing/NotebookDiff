@@ -4,9 +4,9 @@
 '''
 
 import os
-import IPython.nbformat as current
-from IPython.nbconvert.exporters.html import HTMLExporter
-from IPython.nbconvert.preprocessors.base import Preprocessor
+import nbformat as current
+from nbconvert.exporters.html import HTMLExporter
+from nbconvert.preprocessors.base import Preprocessor
 import itertools as it
 import collections
 
